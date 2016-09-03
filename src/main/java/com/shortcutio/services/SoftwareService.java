@@ -27,9 +27,9 @@ public class SoftwareService {
 	}
 		
 	@RequestMapping("/all")
-	public String getAllSofts(){
+	public List<Software> getAllSofts(){
 		List<Software> list= isoftwareRepository.findAll();
-		return list.toString();
+		return list;
 	}
 	}
 	

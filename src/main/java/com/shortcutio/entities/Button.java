@@ -36,6 +36,9 @@ public class Button implements Serializable {
 		super();	
 	}
 	
-	
+	@Override
+	public String toString(){
+		return this.name;
+	}
 	
 }
