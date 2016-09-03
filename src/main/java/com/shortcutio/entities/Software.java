@@ -15,7 +15,7 @@ public class Software {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long ref;
 	String name;
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.LAZY,mappedBy="software")
 	private Collection<Shortcut> shortcuts;
 	
 	public Long getRef() {
@@ -37,6 +37,18 @@ public class Software {
 	public Software() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Collection<Shortcut> getShortcuts() {
+		return shortcuts;
+	}
+	public void setShortcuts(Collection<Shortcut> shortcuts) {
+		this.shortcuts = shortcuts;
+	}
+	@Override
+	public String toString() {
+		return this.name+this.getShortcuts().toString();
 	}
 	
 }

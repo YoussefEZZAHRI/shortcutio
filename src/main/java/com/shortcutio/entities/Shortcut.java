@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 @Entity
 public class Shortcut {
@@ -13,6 +14,8 @@ public class Shortcut {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long ref;
 	String name;
+	@ManyToOne
+	private Software software;
 	@OneToMany
 	private Collection<Button> buttons;
 	
@@ -36,4 +39,21 @@ public class Shortcut {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Collection<Button> getButtons() {
+		return buttons;
+	}
+	public void setButtons(Collection<Button> buttons) {
+		this.buttons = buttons;
+	}
+	@Override
+	public String toString(){
+		return this.name+this.getButtons().toString();
+	}
+	public Software getSoftware() {
+		return software;
+	}
+	public void setSoftware(Software software) {
+		this.software = software;
+	}
+	
 }
